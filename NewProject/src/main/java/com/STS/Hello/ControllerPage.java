@@ -25,7 +25,7 @@ public class ControllerPage {
 	private EmpService empService;
 	Logger log =LoggerFactory.getLogger(ControllerPage.class);
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = {"/login", "/MyProject/login" }, method = RequestMethod.GET)
 	public ModelAndView loginPage() {
 		log.info("Hello Avneesh Shrivastav");
         
@@ -33,19 +33,19 @@ public class ControllerPage {
 		return new ModelAndView("login", "login", new login());
 		
 	}
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	@RequestMapping(value = {"/register", "/MyProject/register" }, method = RequestMethod.GET)
 	public ModelAndView registerPage() {
 		System.out.println("registerpage");
 		return new ModelAndView("register", "register", new register());
 		
 	}
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@RequestMapping(value = {"/index", "/MyProject/index" }, method = RequestMethod.GET)
 	public String indexPage() {
 		System.out.println("indexpage");
 		return "index";
 		
 	}
-	@RequestMapping(value = "/login_check", method = RequestMethod.POST)
+	@RequestMapping(value = {"/login_check", "/MyProject/login_check" }, method = RequestMethod.POST)
 	public String login(@ModelAttribute("login")login login, ModelMap map) {
 		System.out.println("login_check");
 		String check=empService.loginValidate(login);
@@ -53,7 +53,7 @@ public class ControllerPage {
 		return "index";
 		
 	}
-	@RequestMapping(value = "/registerEmp", method = RequestMethod.POST)
+	@RequestMapping(value = {"/registerEmp", "/MyProject/registerEmp" }, method = RequestMethod.POST)
 	public String register(@ModelAttribute("register")register register, ModelMap map) {
 		System.out.println("registerEmp");
 		String regis=empService.registerEmp(register);

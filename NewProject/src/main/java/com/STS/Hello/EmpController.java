@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.STS.Service.EmpService;
 import com.STS.domain.Emp;
 
-@RestController
+//@RestController
 public class EmpController {
 	@Autowired
 	private EmpService empService;

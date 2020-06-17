@@ -124,7 +124,7 @@ body {
 </head>
 <body>
 <div class="welcome" style="font-family: Arial, Helvetica, sans-serif;"><h2 class="wel">Auto Parts</h2><h2 class="come">Login</h2> </div>
-	<form action="login_check"  method="post">
+	<form action="login_check" modelAttribute="login" method="post">
 
 		<table class="container">
 		<tr><th></th><th style="font-family: Arial, Helvetica, sans-serif;">Enter your Credentials</th></tr>

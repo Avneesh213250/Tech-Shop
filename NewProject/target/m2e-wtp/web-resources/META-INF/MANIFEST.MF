@@ -1,10 +1,6 @@
 Manifest-Version: 1.0
 Implementation-Title: NewProject Maven Webapp
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: AS00608741
-Implementation-Vendor-Id: com.STS
-Build-Jdk: 1.8.0_141
-Implementation-URL: http://maven.apache.org
+Build-Jdk-Spec: 1.8
 Created-By: Maven Integration for Eclipse
-Implementation-Vendor: Pivotal Software, Inc.
 

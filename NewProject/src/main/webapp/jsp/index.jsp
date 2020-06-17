@@ -55,7 +55,7 @@ input{
   cursor: pointer;
 
 }
- body {
+body {
 	background-image: url("image/back.jpg");
 }
 </style>
@@ -151,6 +151,7 @@ String str="";
 						</div></td>
 
 				</tr>
+
 
 			</table>
 	</form>
