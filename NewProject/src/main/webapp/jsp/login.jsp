@@ -129,8 +129,8 @@ body {
 		<table class="container">
 		<tr><th></th><th style="font-family: Arial, Helvetica, sans-serif;">Enter your Credentials</th></tr>
 			<tr>
-				<td style="font-family: Arial, Helvetica, sans-serif;"><label><b>Username</b></label></td>
-				<td><input type="text" placeholder="Enter Username" id="name" name="name"
+				<td style="font-family: Arial, Helvetica, sans-serif;"><label><b>Email ID</b></label></td>
+				<td><input type="text" placeholder="Enter Username" id="email" name="email"
 				onchange="validate()"	required></td>
 			</tr>
 			<tr>
@@ -170,16 +170,7 @@ body {
 <script type="text/javascript">
 
 function validate() {
-	var x = document.getElementById("name").value;
-	if(x.search(/^[a-zA-Z]+$/) === -1){
-		
-		document.getElementById("mydiv").innerHTML = "<h4 style='font-family: Arial, Helvetica, sans-serif;'>Enter only charecter</h4>";
-		document.getElementById("name").value="";
-		show();
-		
-	} else {
-		document.getElementById("name").value = document.getElementById("name").value.toUpperCase();
-	}
+
 	if (x == " ") {
 		alert("Name must be filled out");
 		return false;

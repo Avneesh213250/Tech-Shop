@@ -141,12 +141,7 @@ body {
 				<th style="font-family: Arial, Helvetica, sans-serif;">Enter
 					your details</th>
 			</tr>
-			<tr>
-				<td style="font-family: Arial, Helvetica, sans-serif;"><label><b>ID</b></label></td>
-				<td><input type="number" placeholder="Enter your ID"  name="id"
-					 required="required"></td>
-				<!-- <div id="mydiv1" class="email" style="color: red;"></div> -->
-			</tr>
+			
 			<tr>
 				<td style="font-family: Arial, Helvetica, sans-serif;"><label><b>Name</b></label></td>
 				<td><input type="text" placeholder="Name" id="name" name="name"
@@ -182,7 +177,7 @@ body {
 			</tr>
 			<tr>
 				<td style="font-family: Arial, Helvetica, sans-serif;"><label><b>PhoneNumber</b></label></td>
-				<td><input type="number" placeholder="Phone Number" id="phone"
+				<td><input type="text" placeholder="Phone Number" id="phone"
 					name="number" maxlength="10" required></td>
 			</tr>
 			<tr>

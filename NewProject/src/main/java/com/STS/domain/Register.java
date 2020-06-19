@@ -1,11 +1,18 @@
 package com.STS.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "register")
+public class Register {
 
-
-public class register {
-
-private int id;
+	@Id
+	@GeneratedValue
+private Long id;
 	
 private String name;
 	
@@ -19,7 +26,8 @@ private String country;
 	
 private String city;
 	
-private int number;
+@Column(name = "phone_number")
+private String number;
 
 public String getName() {
 	return name;
@@ -58,21 +66,17 @@ public void setCity(String city) {
 	this.city = city;
 }
 
-public int getId() {
+public Long getId() {
 	
 	return id;
 }
-public void setId(String id) {
-	int id1=Integer.parseInt(id);
-	this.id = id1;
-}
-public int getNumber() {
+
+public String getNumber() {
 	
 	return number;
 }
 public void setNumber(String number) {
-	int num=Integer.parseInt(number);
-	this.number = num;
+	this.number = number;
 }
 @Override
 public String toString() {

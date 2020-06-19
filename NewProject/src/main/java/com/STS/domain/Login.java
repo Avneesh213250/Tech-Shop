@@ -3,19 +3,20 @@ package com.STS.domain;
 
 
 
-public class login {
+public class Login {
 	
-private String name;
+private String email;
 
 private String psw;
 
 
 
-public String getName() {
-	return name;
+
+public String getEmail() {
+	return email;
 }
-public void setName(String name) {
-	this.name = name;
+public void setEmail(String email) {
+	this.email = email;
 }
 public String getPsw() {
 	return psw;
@@ -25,7 +26,7 @@ public void setPsw(String psw) {
 }
 @Override
 public String toString() {
-	return "login [name=" + name + ", psw=" + psw + "]";
+	return "login [email=" + email + ", psw=" + psw + "]";
 }
 
 
