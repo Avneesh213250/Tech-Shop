@@ -10,14 +10,11 @@ import javax.persistence.Table;
 @Table(name = "register")
 public class Register {
 
-	@Id
-	@GeneratedValue
-private Long id;
-	
+
 private String name;
 	
 private String password;
-	
+	@Id
 private String email;
 
 private String address;
@@ -66,10 +63,7 @@ public void setCity(String city) {
 	this.city = city;
 }
 
-public Long getId() {
-	
-	return id;
-}
+
 
 public String getNumber() {
 	
@@ -80,7 +74,7 @@ public void setNumber(String number) {
 }
 @Override
 public String toString() {
-	return "register [id=" + id + ", name=" + name + ", password=" + password + ", email=" + email + ", address="
+	return "register [ name=" + name + ", password=" + password + ", email=" + email + ", address="
 			+ address + ", country=" + country + ", city=" + city + ", number=" + number + "]";
 }
 

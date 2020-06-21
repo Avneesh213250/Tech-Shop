@@ -1,21 +1,24 @@
 package com.STS.Hello;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.STS.Service.CustomerService;
 import com.STS.domain.Login;
 import com.STS.domain.Register;
 
-@Controller
-
-public class ControllerPage {
-
+//@RestController
+public class MyRestController {
 	@Autowired
 	CustomerService cs;
 
@@ -40,27 +43,33 @@ public class ControllerPage {
 		
 	}
 	@RequestMapping(value = {"/login_check", "/MyProject/login_check" }, method = RequestMethod.POST)
-	public String login(@ModelAttribute("login")Login Login, ModelMap map) {
+	public ResponseEntity<Register> Login(@RequestBody Login Login, ModelMap map) {
 		System.out.println("login_check");
 		System.out.println(Login);
 
-		Register r= cs.findById(Login);
-		return "index";
+		Optional<Register> r= Optional.of(cs.findById(Login));
+		return ResponseEntity.of(r);
 		
 	}
 	@RequestMapping(value = {"/registerEmp", "/MyProject/registerEmp" }, method = RequestMethod.POST)
-	public String Register(@ModelAttribute("register")Register Register, ModelMap map) {
-		System.out.println("registerEmp=====> "+ Register);
-
-		Register i=cs.saveData(Register);
-		System.out.println("in t "+i);
-		if(i!=null) {
-			map.addAttribute("msg", "Registration completed successfully");
-		}else {
-			map.addAttribute("msg", "Sorry, Please try again");
-		}
-		return "index";
+	public ResponseEntity Register(@RequestBody Register Register, ModelMap map) {
+		return ResponseEntity.ok(cs.saveData(Register));
 		
 	}
-	
+	@PostMapping("/{email}")
+	public ResponseEntity deleteByEmail(@PathVariable String email) {
+		
+		if(!cs.findByEmail(email).isPresent()) {
+			ResponseEntity.badRequest().build();
+		}
+		cs.deleteByEmail(email);
+		return ResponseEntity.ok().build();
+	}
+	@PostMapping("/update/{email}")
+	public ResponseEntity<Register> update(@RequestBody Register register, @PathVariable String email){
+		System.out.println(email);
+		Register register2=cs.updateByEmail(email, register);
+		
+		return ResponseEntity.ok(register2);
+	}
 }
